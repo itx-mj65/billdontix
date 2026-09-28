@@ -8,10 +8,17 @@ export default function RevenueRecoverySection() {
           Stop Losing $50K+ Annually to Billing Errors and Unpaid Claims
         </h2>
         <p className="revenue-body">
-          Every day your practice submits claims with avoidable errors, outdated
-          codes, or incomplete documentation is another day revenue walks out
-          the door. Our team closes the gap between what you bill and what you
-          actually collect.
+          Most dental practices quietly leave 15% to 20% of their revenue on
+          the table due to insurance denials, coding errors, and administrative
+          turnover. In fact,{' '}
+          <span className="revenue-body-link">
+            American Dental Association Health Policy Institute benchmarks
+          </span>{' '}
+          reveal that more than 20% of practices face an administrative staff
+          deficit, directly triggering billing backlogs and revenue leakage.
+          Revix Plus takes complete ownership of your end-to-end revenue cycle,
+          eliminating front-office friction so you can focus entirely on patient
+          care and actually profit from your clinical work.
         </p>
 
         {/* Metric cards */}

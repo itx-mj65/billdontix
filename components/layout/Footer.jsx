@@ -88,16 +88,24 @@ export default function Footer() {
         {/* Divider */}
         <div className="h-px w-full" style={{ background: 'var(--color-peach)', opacity: 0.2 }} />
 
+        {/* Disclaimer */}
+        <p
+          className="text-[12px] text-center pt-6"
+          style={{ fontFamily: 'var(--font-body)', color: 'var(--color-blue-light)', opacity: 0.7 }}
+        >
+          Disclaimer: Individual results vary based on practice size, payer mix, accounts receivable, claim quality, and other factors.
+        </p>
+
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
           <p
             className="text-[13px]"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--color-blue-light)' }}
           >
-            © {new Date().getFullYear()} Revix Plus. All rights reserved.
+            © 2025 Revix Plus. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
-            {['Privacy Policy', 'Terms of Service', 'HIPAA Notice'].map((item) => (
+            {['Privacy Policy', 'Terms of Service', 'Accessibility', 'HIPAA Compliance'].map((item) => (
               <Link
                 key={item}
                 href="#"

@@ -387,6 +387,12 @@ img {
   justify-content: center;
   margin-top: 8px;
 }
+.revenue-body-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--color-navy);
+  font-weight: 600;
+}
 @media (max-width: 768px) {
   .revenue-section { padding: 60px 20px; }
   .revenue-heading { font-size: 34px; }
@@ -439,6 +445,7 @@ img {
 }
 .trust-card {
   background: var(--color-white);
+  border: 1.5px solid #e8e0f0;
   border-radius: var(--radius-card);
   padding: 32px 28px;
   display: flex;
@@ -446,17 +453,6 @@ img {
   align-items: flex-start;
   gap: 14px;
   text-align: left;
-}
-.trust-card__icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--color-lavender);
-  color: var(--color-purple);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }
 .trust-card__title {
   font-family: var(--font-heading);
@@ -512,10 +508,18 @@ img {
   margin: 0;
   text-align: center;
 }
+.marquee-pill {
+  background: var(--color-white);
+  border-radius: 999px;
+  box-shadow: 0 4px 24px rgba(45, 27, 78, 0.10);
+  padding: 16px 0;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 16px;
+}
 .marquee-container {
   width: 100%;
   overflow: hidden;
-  margin-top: 24px;
   /* Fade edges */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
@@ -852,7 +856,7 @@ img {
 
 /* ---- Specialties ---- */
 .specialties-section {
-  background: var(--color-peach-pale);
+  background: var(--color-lavender);
   padding: 80px 40px;
 }
 .specialties-inner {
@@ -868,12 +872,11 @@ img {
   flex-direction: column;
   gap: 12px;
 }
-.specialties-eyebrow {
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-purple);
-  letter-spacing: 0.1em;
+.specialties-sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-slate);
   margin: 0;
 }
 .specialties-heading {
@@ -890,39 +893,28 @@ img {
   gap: 20px;
 }
 .specialty-card {
-  background: var(--color-white);
+  background: #f0ecfa;
   border-radius: var(--radius-card);
-  padding: 28px 24px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .specialty-card:hover {
   box-shadow: 0 6px 24px rgba(45, 27, 78, 0.09);
   transform: translateY(-2px);
 }
-.specialty-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--color-lavender);
-  color: var(--color-purple);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
 .specialty-name {
   font-family: var(--font-heading);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-navy);
   margin: 0;
 }
 .specialty-desc {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-slate);
   line-height: 1.6;
   margin: 0;
@@ -1223,7 +1215,7 @@ img {
 
 /* ---- FAQ ---- */
 .faq-section {
-  background: var(--color-lavender);
+  background: var(--color-white);
   padding: 80px 80px;
 }
 .faq-inner {
@@ -1282,16 +1274,16 @@ img {
   flex: 1;
 }
 .faq-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   background: var(--color-lavender);
   color: var(--color-purple);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 .faq-item--open .faq-icon {
   background: var(--color-purple);
@@ -1344,18 +1336,18 @@ img {
 }
 .cta-glow--teal {
   background: #0d9488;
-  left: 240px;
+  right: 240px;
   bottom: -100px;
 }
 .cta-glow--purple {
   background: #7b5ea7;
-  left: 0;
+  right: 0;
   top: -80px;
 }
-/* Tooth photo — positioned at the absolute left of the section */
+/* Tooth photo — positioned at the absolute right of the section */
 .cta-tooth-wrap {
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: 0;
   width: 328px;
   height: 432px;
@@ -1368,7 +1360,7 @@ img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  object-position: bottom left;
+  object-position: bottom right;
 }
 /* Glass panel sits over the whole section */
 .cta-inner {

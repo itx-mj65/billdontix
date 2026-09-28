@@ -16,22 +16,23 @@ function formatCurrency(amount) {
   }).format(amount);
 }
 
+function computeRecovery(revenue, cleanRate, arBalance) {
+  const rev = parseFloat(String(revenue).replace(/,/g, '')) || 0;
+  const rate = parseFloat(cleanRate) || 0;
+  const ar = parseFloat(String(arBalance).replace(/,/g, '')) || 0;
+  const claimImprovement = Math.max(0, (97.4 - rate) / 100) * rev * 0.15;
+  const arRecovery = ar * 0.25;
+  return Math.round(claimImprovement + arRecovery);
+}
+
 export default function ROICalculatorSection() {
   const [revenue, setRevenue] = useState('1500000');
   const [cleanRate, setCleanRate] = useState('85');
-  const [arBalance, setArBalance] = useState('200000');
-  const [result, setResult] = useState(null);
+  const [arBalance, setArBalance] = useState('62000');
+  const [result, setResult] = useState(() => computeRecovery('1500000', '85', '62000'));
 
   function calculate() {
-    const rev = parseFloat(revenue.replace(/,/g, '')) || 0;
-    const rate = parseFloat(cleanRate) || 0;
-    const ar = parseFloat(arBalance.replace(/,/g, '')) || 0;
-
-    // Simplified estimate: improvement to 97.4% × revenue × 15% collection factor + 25% of AR
-    const claimImprovement = Math.max(0, (97.4 - rate) / 100) * rev * 0.15;
-    const arRecovery = ar * 0.25;
-    const total = Math.round(claimImprovement + arRecovery);
-    setResult(total);
+    setResult(computeRecovery(revenue, cleanRate, arBalance));
   }
 
   return (
@@ -118,26 +119,24 @@ export default function ROICalculatorSection() {
                     className="roi-input"
                     value={arBalance}
                     onChange={(e) => setArBalance(e.target.value)}
-                    placeholder="200,000"
+                    placeholder="62,000"
                   />
                 </div>
               </div>
             </div>
 
             <button className="roi-btn" onClick={calculate}>
-              Calculate My Recovery
+              Calculate Your Exact Recovery Potential
             </button>
 
-            {result !== null && (
-              <div className="roi-result">
-                <span className="roi-result-label">Estimated Annual Recovery</span>
-                <span className="roi-result-value">{formatCurrency(result)}</span>
-                <span className="roi-result-note">
-                  This is a simplified estimate. Your actual recovery may vary based
-                  on payer mix and current billing processes.
-                </span>
-              </div>
-            )}
+            <div className="roi-result">
+              <span className="roi-result-label">Estimated Recovery Potential</span>
+              <span className="roi-result-value">{formatCurrency(result)}</span>
+              <span className="roi-result-note">
+                This is a simplified estimate. Your actual recovery may vary based
+                on payer mix and current billing processes.
+              </span>
+            </div>
           </div>
         </div>
       </div>

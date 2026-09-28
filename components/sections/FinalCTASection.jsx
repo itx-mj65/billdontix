@@ -35,7 +35,7 @@ export default function FinalCTASection() {
       <div className="cta-glow cta-glow--teal" aria-hidden="true" />
       <div className="cta-glow cta-glow--purple" aria-hidden="true" />
 
-      {/* Dental tooth photo — positioned at left edge */}
+      {/* Dental tooth photo — positioned at right edge */}
       <div className="cta-tooth-wrap" aria-hidden="true">
         <Image
           src="/images/dental-teeth-photo.png"

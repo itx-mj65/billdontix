@@ -78,7 +78,6 @@ export default function TrustSignalsSection() {
         <div className="trust-cards">
           {trustCards.map((card) => (
             <div key={card.title} className="trust-card">
-              <div className="trust-card__icon">{card.icon}</div>
               <h3 className="trust-card__title">{card.title}</h3>
               <p className="trust-card__desc">{card.desc}</p>
             </div>
