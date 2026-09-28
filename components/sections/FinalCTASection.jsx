@@ -31,9 +31,24 @@ function ShieldCheck() {
 export default function FinalCTASection() {
   return (
     <section className="cta-section">
+      {/* Decorative glow ellipses */}
+      <div className="cta-glow cta-glow--teal" aria-hidden="true" />
+      <div className="cta-glow cta-glow--purple" aria-hidden="true" />
+
+      {/* Dental tooth photo — positioned at left edge */}
+      <div className="cta-tooth-wrap" aria-hidden="true">
+        <Image
+          src="/images/dental-teeth-photo.png"
+          alt=""
+          width={328}
+          height={432}
+          className="cta-tooth-image"
+        />
+      </div>
+
       <div className="cta-inner">
         <div className="cta-panel">
-          {/* Left column */}
+          {/* Left column — text + buttons */}
           <div className="cta-left">
             <h2 className="cta-heading">
               Stop Letting Unpaid Claims Limit Your Practice
@@ -77,15 +92,15 @@ export default function FinalCTASection() {
             </ul>
           </div>
 
-          {/* Right column — dashboard image */}
+          {/* Right column — dashboard card image */}
           <div className="cta-right">
-            <div className="cta-image-wrap">
+            <div className="cta-dashboard-wrap">
               <Image
                 src="/images/cta-dashboard.png"
-                alt="Billing dashboard preview"
-                width={560}
-                height={380}
-                className="cta-image"
+                alt="Aging A/R dashboard showing $42,100 with 15 claims pending"
+                width={400}
+                height={310}
+                className="cta-dashboard-image"
               />
             </div>
           </div>

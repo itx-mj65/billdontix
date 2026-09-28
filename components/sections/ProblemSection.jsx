@@ -1,80 +1,58 @@
+import Image from 'next/image';
+
 const problems = [
   {
+    id: 'aging-ar',
+    imageSrc: '/images/problem-illus-1.png',
+    imageAlt: 'Overdue billing notice',
     title: 'Aging Accounts Receivable',
-    desc: 'Unpaid claims pile up beyond 60, 90, and 120 days while your staff lacks the bandwidth to pursue every denial and underpayment.',
-    gradient: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.75" />
-        <path
-          d="M12 7v5l3 3"
-          stroke="white"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    desc: 'Claims unpaid beyond 60 or 90 days become much harder to recover. When aging balances linger, your daily cash flow suffers. We aggressively pursue outstanding accounts to secure delayed payments and get you paid faster.',
   },
   {
-    title: 'Insurance Denial Rates',
-    desc: 'Denial rates are rising across all payers. Without a dedicated appeals process, denied claims become lost revenue permanently.',
-    gradient: 'linear-gradient(135deg, #7b5ea7 0%, #5b3f87 100%)',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" stroke="white" strokeWidth="1.75" />
-        <path
-          d="M15 9l-6 6M9 9l6 6"
-          stroke="white"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    id: 'denial-rates',
+    imageSrc: '/images/problem-illus-2.png',
+    imageAlt: 'High claim denial rates',
+    title: 'High Claim Denial Rates',
+    desc: 'Incorrect CDT coding, missing documentation, incomplete narratives, and overlooked insurance limitations lead to frequent unnecessary denials. We meticulously check every claim before submission, catching costly errors early.',
   },
   {
-    title: 'Billing Staff Turnover',
-    desc: 'High-quality billing staff are expensive to hire, train, and retain. Every departure resets institutional knowledge and disrupts cash flow.',
-    gradient: 'linear-gradient(135deg, #0796a3 0%, #056e78 100%)',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-          stroke="white"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-        <circle cx="9" cy="7" r="4" stroke="white" strokeWidth="1.75" />
-        <path
-          d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-          stroke="white"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    id: 'medical-billing',
+    imageSrc: '/images/problem-illus-3.png',
+    imageAlt: 'Missed medical billing opportunities',
+    title: 'Missed Medical Billing Opportunities',
+    desc: 'Eligible procedures billed through medical insurance often go unreimbursed without specialized expertise. We navigate complex medical coding, ensuring you capture maximum compensation for sleep apnea and oral surgery treatments.',
   },
   {
-    title: 'CDT Coding Errors',
-    desc: 'Dental coding complexity grows every year. A single incorrect CDT code can trigger a denial or audit, costing far more than the original claim.',
-    gradient: 'linear-gradient(135deg, #e8a530 0%, #c78510 100%)',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M9 12h6M9 16h6M7 8h.01M12 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V9l-5-6z"
-          stroke="white"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    id: 'staffing',
+    imageSrc: '/images/problem-illus-4.png',
+    imageAlt: 'Staffing challenges',
+    title: 'Staffing Challenges',
+    desc: 'Losing an experienced biller creates costly interruptions while hiring and training replacements. Our dedicated team eliminates these sudden disruptions, ensuring consistent cash flow continues whether or not your staff changes.',
   },
 ];
+
+function ArrowIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path
+        d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function ProblemSection() {
   return (
     <section className="problem-section">
+      {/* Decorative circles */}
+      <div className="problem-decor problem-decor--1" aria-hidden="true" />
+      <div className="problem-decor problem-decor--2" aria-hidden="true" />
+      <div className="problem-decor problem-decor--3" aria-hidden="true" />
+
       <div className="problem-inner">
         <div className="problem-header">
           <h2 className="problem-heading">
@@ -89,15 +67,29 @@ export default function ProblemSection() {
 
         <div className="problem-grid">
           {problems.map((item) => (
-            <div key={item.title} className="problem-card">
-              <div
-                className="problem-card__top"
-                style={{ background: item.gradient }}
-              >
-                <div className="problem-card__icon">{item.icon}</div>
+            <div key={item.id} className="problem-card">
+              {/* Photo top area */}
+              <div className="problem-card__image-wrap">
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  fill
+                  className="problem-card__image"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
+
+              {/* Divider */}
+              <div className="problem-card__divider" aria-hidden="true" />
+
+              {/* Content area */}
               <div className="problem-card__body">
-                <h3 className="problem-card__title">{item.title}</h3>
+                <div className="problem-card__title-row">
+                  <h3 className="problem-card__title">{item.title}</h3>
+                  <span className="problem-card__arrow">
+                    <ArrowIcon />
+                  </span>
+                </div>
                 <p className="problem-card__desc">{item.desc}</p>
               </div>
             </div>

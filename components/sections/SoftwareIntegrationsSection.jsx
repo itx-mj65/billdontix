@@ -1,18 +1,6 @@
-const softwareNames = [
-  'Dentrix',
-  'Eaglesoft',
-  'Open Dental',
-  'Curve Dental',
-  'Carestream',
-  'MacPractice',
-  'Dolphin',
-  'Nextech',
-];
+import Image from 'next/image';
 
 export default function SoftwareIntegrationsSection() {
-  // Duplicate for seamless infinite marquee
-  const doubled = [...softwareNames, ...softwareNames];
-
   return (
     <section className="software-section">
       <div className="software-inner">
@@ -23,14 +11,25 @@ export default function SoftwareIntegrationsSection() {
           We work securely inside the systems your team already uses.
         </p>
 
-        {/* Marquee strip */}
-        <div className="marquee-container">
+        {/* Marquee strip — duplicate image for seamless loop */}
+        <div className="marquee-container" aria-label="Supported software: Dentrix, Eaglesoft, Open Dental, Curve Dental, Carestream, MacPractice">
           <div className="marquee-track">
-            {doubled.map((name, i) => (
-              <span key={i} className="software-badge">
-                {name}
-              </span>
-            ))}
+            <Image
+              src="/images/software-logos.png"
+              alt=""
+              width={1268}
+              height={104}
+              className="software-logos-img"
+              aria-hidden="true"
+            />
+            <Image
+              src="/images/software-logos.png"
+              alt=""
+              width={1268}
+              height={104}
+              className="software-logos-img"
+              aria-hidden="true"
+            />
           </div>
         </div>
       </div>
